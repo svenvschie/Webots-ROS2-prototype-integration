@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<library path="drive_controller">
+  <class
+    name="webots_ros2_prototype_integration_test::DriveController"
+    type="webots_ros2_prototype_integration_test::DriveController"
+    base_class_type="webots_ros2_driver::PluginInterface">
+    <description>
+      Drive controller plugin for a 4-wheel Webots robot.
+    </description>
+  </class>
+</library>
