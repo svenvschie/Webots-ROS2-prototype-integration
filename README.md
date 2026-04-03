@@ -15,7 +15,7 @@ This setup uses a hybrid architecture:
 * ROS 2 runs inside Ubuntu (WSL2 on Windows)
 * Communication between Webots and ROS 2 occurs over a network interface
 
-This setup is chosen to balance compatibility and graphical performance on Windows systems.
+This setup balances compatibility and graphical performance on Windows systems.
 
 ## Supported Setups
 
@@ -24,12 +24,7 @@ This README documents the following setups:
 * **Ubuntu 24.04**
 * **Windows + WSL2 + Ubuntu 24.04**
 
-On Windows, this repository uses the following approach:
-
-* ROS 2 runs in WSL2 (Ubuntu)
-* Webots runs natively on Windows
-
-Native Windows ROS 2 installation is not covered.
+Native Windows ROS 2 installation is **not** covered.
 
 ## Prerequisites
 
@@ -112,7 +107,7 @@ colcon build --packages-select webots_ros2_prototype_integration_test
 ```bash
 cd ~/ros2_ws
 source /opt/ros/jazzy/setup.bash
-source install/setup.bash
+source ~/ros2_ws/install/setup.bash
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py
 ```
 
