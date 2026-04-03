@@ -1,4 +1,5 @@
 # Webots ROS 2 Integration Test
+![Webots ROS2](docs/images/image.jpeg)
 ## Overview
 
 This repository demonstrates a hybrid Webots–ROS 2 setup.
