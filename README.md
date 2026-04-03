@@ -18,6 +18,7 @@ This README does **not** document native Windows ROS 2 installation.
 
 > Although ROS 2 Jazzy officially documents native Windows 10 support, that setup requires a different installation process which is not covered in this repository.
 > Additionally, the Webots ROS 2 documentation recommends using WSL2 with Ubuntu on Windows, regardless of Windows version.
+> Webots itself is installed on Windows (rather than inside WSL) for simplicity and better graphical performance.
 
 ## Prerequisites
 
@@ -163,7 +164,9 @@ ip route | grep default
 
 Example output:
 
+```text
 default via 172.20.160.1 dev eth0 proto kernel
+```
 
 #### Launch with the correct IP
 
