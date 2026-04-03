@@ -1,22 +1,35 @@
 # Webots ROS 2 Integration Test
 
-This repository contains files for testing integration between **Webots** and **ROS 2 Jazzy**
+This repository contains files for testing integration between **Webots** and **ROS 2 Jazzy**.
 
 It provides a small prototype package for verifying a basic Webots and ROS 2 integration workflow:
 
 * launching a robot simulation in Webots
 * connecting ROS 2 nodes to the simulation
 
-## Supported and documented setups
+## Architecture Overview
+
+This setup uses a hybrid architecture:
+
+* Webots runs natively on the host system (Windows or Ubuntu)
+* ROS 2 runs inside Ubuntu (WSL2 on Windows)
+* Communication between Webots and ROS 2 occurs over a network interface
+
+This setup is chosen to balance compatibility and graphical performance on Windows systems.
+
+## Supported Setups
 
 This README documents the following setups:
 
 * **Ubuntu 24.04**
 * **Windows + WSL2 + Ubuntu 24.04**
 
-This README does **not** document native Windows ROS 2 installation.
+On Windows, this repository uses the following approach:
 
-> This follows the recommendation from the Webots ROS 2 documentation.
+* ROS 2 runs in WSL2 (Ubuntu)
+* Webots runs natively on Windows
+
+Native Windows ROS 2 installation is not covered.
 
 ## Prerequisites
 
@@ -24,18 +37,20 @@ Before using this package, make sure you have the following installed.
 
 ### WSL2 (Windows only)
 
-If you are using Windows, install WSL2 (With default option: Ubuntu) first:
+If you are using Windows, install WSL2 (with Ubuntu) first:
 
 [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 After installation, a reboot may be required.
-In some cases, you may need to run wsl --install again after reboot to complete the Ubuntu installation.
+In some cases, you may need to run `wsl --install` again after reboot to complete the Ubuntu installation.
 
 ### ROS 2 Jazzy
 
-Install ROS 2 Jazzy in Ubuntu (using WSL2 in case of Windows):
+Install ROS 2 Jazzy in Ubuntu (using WSL2 if on Windows):
 
 [https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
+
+### Webots
 
 Install Webots:
 
@@ -59,8 +74,6 @@ source ~/.bashrc
 
 ### Install Webots ROS 2 integration & colcon
 
-Install the required `webots_ros2` packages and `colcon` for building packages (if not already installed):
-
 ```bash
 sudo apt install ros-jazzy-webots-ros2 python3-colcon-common-extensions
 ```
@@ -70,7 +83,7 @@ sudo apt install ros-jazzy-webots-ros2 python3-colcon-common-extensions
 You need a working ROS 2 workspace, for example `~/ros2_ws`:
 
 ```bash
-mkdir -p ~/ros2_ws/src 
+mkdir -p ~/ros2_ws/src
 ```
 
 ### Environment setup (every new terminal)
