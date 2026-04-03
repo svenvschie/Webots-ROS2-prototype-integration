@@ -58,7 +58,7 @@ echo 'export WEBOTS_HOME="/mnt/c/Program Files/Webots"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-### Install Webots ROS 2 integration
+### Install Webots ROS 2 integration & colcon
 
 Install the required `webots_ros2` packages:
 
@@ -66,11 +66,7 @@ Install the required `webots_ros2` packages:
 sudo apt-get install ros-jazzy-webots-ros2
 ```
 
-### colcon
-
-You need `colcon` to build the package:
-
-Install it (if not already installed):
+Install `colcon` (if not already installed):
 
 ```bash
 sudo apt install python3-colcon-common-extensions
