@@ -28,7 +28,7 @@ If you are using Windows, install WSL2 (With default option: Ubuntu) first:
 
 [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-After installation, a reboot is sometimes required.
+After installation, a reboot may be required.
 In some cases, you may need to run wsl --install again after reboot to complete the Ubuntu installation.
 
 ### ROS 2 Jazzy
@@ -39,8 +39,8 @@ Install ROS 2 Jazzy in Ubuntu (using WSL2 in case of Windows):
 
 Install Webots:
 
-* On Windows if using Windows + WSL2
-* On Ubuntu if using a native Ubuntu system
+* On **Windows** if using **Windows + WSL2**
+* On **Ubuntu** if using a native Ubuntu system
 
 #### Windows + WSL2 only: set Webots path in WSL
 
