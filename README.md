@@ -25,13 +25,16 @@ Before using this package, make sure you have the following installed.
 
 ### WSL2 (Windows 11 only)
 
-If you are using Windows 11, install WSL2 and Ubuntu first:
+If you are using Windows 11, install WSL2 (With default option: Ubuntu) first:
 
 [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
+After installation, a reboot is usually required.
+In some cases, you may need to run wsl --install again after reboot to complete the Ubuntu installation.
+
 ### ROS 2 Jazzy
 
-Install ROS 2 Jazzy in Ubuntu:
+Install ROS 2 Jazzy in Ubuntu (using WSL2 in case of Windows):
 
 [https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
 
@@ -39,6 +42,21 @@ Install ROS 2 Jazzy in Ubuntu:
 
 * Install **Webots on Windows** if you are using **Windows 11 + WSL2**
 * Install **Webots on Ubuntu** if you are using a full Ubuntu installation
+
+#### Windows 11 + WSL2 only: set Webots path in WSL
+
+If Webots is installed on Windows, make sure WSL can find it before installing the Webots ROS 2 integration:
+
+```bash
+export WEBOTS_HOME="/mnt/c/Program Files/Webots"
+```
+
+To make this persistent:
+
+```bash
+echo 'export WEBOTS_HOME="/mnt/c/Program Files/Webots"' >> ~/.bashrc
+source ~/.bashrc
+```
 
 #### Install Webots ROS 2 integration
 
@@ -59,40 +77,6 @@ You need a working ROS 2 workspace, for example `~/ros2_ws`:
 [https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
 
 ## Installation
-
-### Ubuntu 24.04
-
-If you are using a full Ubuntu 24.04 installation:
-
-```bash
-cd ~/ros2_ws/src
-git clone <REPO_URL>
-cd ~/ros2_ws
-source /opt/ros/jazzy/setup.bash
-colcon build --packages-select webots_ros2_prototype_integration_test
-```
-
-### Windows 11 + WSL2
-
-This setup uses:
-
-* ROS 2 Jazzy inside WSL2 Ubuntu 24.04
-* Webots installed on Windows
-
-#### 1. Set Webots path in WSL
-
-```bash
-export WEBOTS_HOME="/mnt/c/Program Files/Webots"
-```
-
-To make this persistent:
-
-```bash
-echo 'export WEBOTS_HOME="/mnt/c/Program Files/Webots"' >> ~/.bashrc
-source ~/.bashrc
-```
-
-#### 2. Clone and build
 
 ```bash
 cd ~/ros2_ws/src
