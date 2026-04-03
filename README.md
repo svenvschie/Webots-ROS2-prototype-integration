@@ -133,10 +133,6 @@ Expected value:
 /mnt/c/Program Files/Webots
 ```
 
-### Webots and ROS 2 cannot connect
-
-Apply the WSL networking fix described below.
-
 ### `ros2` command not found
 
 Make sure ROS 2 has been sourced:
