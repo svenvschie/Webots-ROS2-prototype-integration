@@ -40,7 +40,7 @@ Install ROS 2 Jazzy in Ubuntu (using WSL2 in case of Windows):
 
 ### Webots
 
-* Install **Webots on Windows** if you are using **Windows 11 + WSL2**
+* Install **Webots on Windows** if you are using **Windows + WSL2**
 * Install **Webots on Ubuntu** if you are using a full Ubuntu installation
 
 #### Windows + WSL2 only: set Webots path in WSL
