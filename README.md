@@ -1,18 +1,10 @@
 # Webots ROS 2 Integration Test
+## Overview
 
-This repository contains files for testing integration between **Webots** and **ROS 2 Jazzy**.
+This repository demonstrates a hybrid Webots–ROS 2 setup.
 
-It provides a small prototype package for verifying a basic Webots and ROS 2 integration workflow:
-
-* launching a robot simulation in Webots
-* connecting ROS 2 nodes to the simulation
-
-## Architecture Overview
-
-This setup uses a hybrid architecture:
-
-* Webots runs natively on the host system (Windows or Ubuntu)
-* ROS 2 runs inside Ubuntu (WSL2 on Windows)
+* **Webots** runs natively on the host system (Windows or Ubuntu) and handles the robot simulation
+* **ROS 2** runs inside Ubuntu (WSL2 on Windows) and runs the control nodes that interact with the simulation
 * Communication between Webots and ROS 2 occurs over a network interface
 
 This setup balances compatibility and graphical performance on Windows systems.
