@@ -12,20 +12,20 @@ It provides a small prototype package for verifying a basic Webots and ROS 2 int
 This README documents the following setups:
 
 * **Ubuntu 24.04**
-* **Windows 11 + WSL2 + Ubuntu 24.04**
+* **Windows + WSL2 + Ubuntu 24.04**
 
 This README does **not** document native Windows ROS 2 installation.
 
-> Although ROS 2 Jazzy officially documents Windows 10 support, that setup requires a different installation process which is not covered in this repository.
-> Additionally, the Webots ROS 2 documentation recommends using WSL2 with Ubuntu on Windows, regardless of version.
+> Although ROS 2 Jazzy officially documents native Windows 10 support, that setup requires a different installation process which is not covered in this repository.
+> Additionally, the Webots ROS 2 documentation recommends using WSL2 with Ubuntu on Windows, regardless of Windows version.
 
 ## Prerequisites
 
 Before using this package, make sure you have the following installed.
 
-### WSL2 (Windows 11 only)
+### WSL2 (Windows only)
 
-If you are using Windows 11, install WSL2 (With default option: Ubuntu) first:
+If you are using Windows, install WSL2 (With default option: Ubuntu) first:
 
 [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
@@ -43,7 +43,7 @@ Install ROS 2 Jazzy in Ubuntu (using WSL2 in case of Windows):
 * Install **Webots on Windows** if you are using **Windows 11 + WSL2**
 * Install **Webots on Ubuntu** if you are using a full Ubuntu installation
 
-#### Windows 11 + WSL2 only: set Webots path in WSL
+#### Windows + WSL2 only: set Webots path in WSL
 
 If Webots is installed on Windows, make sure WSL can find it before installing the Webots ROS 2 integration:
 
