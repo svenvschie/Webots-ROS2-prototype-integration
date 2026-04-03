@@ -165,17 +165,32 @@ source ~/ros2_ws/install/setup.bash
 
 ### WSL networking fix
 
-If Webots runs on Windows and ROS 2 runs in WSL2, the default address (127.0.0.1) may not work.
+If Webots runs on Windows and ROS 2 runs in WSL2, the default address (`127.0.0.1`) may not work.
 
-If you get "Cannot connect to Webots instance":
+In that case, the controller may fail with:
 
-1. In WSL, run:
-   ip route | grep default
+```text
+Cannot connect to Webots instance
+```
 
-2. You’ll see something like:
-   default via 172.x.x.x
+#### Get the Windows host IP
 
-3. Use that IP when launching:
-   ros2 launch webots_ros2_prototype_integration_test robot_launch.py webots_ip:=172.x.x.x
+From WSL, run:
 
-On Ubuntu (or some WSL setups), the normal launch command works without changes.
+```bash
+ip route | grep default
+```
+
+Example output:
+
+```text
+default via 172.20.160.1 dev eth0 proto kernel
+```
+
+#### Launch with the correct IP
+
+Use the `default via` address as `webots_ip`:
+
+```bash
+ros2 launch webots_ros2_prototype_integration_test robot_launch.py webots_ip:=172.20.160.1
+```
