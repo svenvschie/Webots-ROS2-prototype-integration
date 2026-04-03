@@ -74,16 +74,6 @@ You need a working ROS 2 workspace, for example `~/ros2_ws`:
 mkdir -p ~/ros2_ws/src
 ```
 
-### Environment setup (every new terminal)
-
-In every new terminal, remember to source ROS 2 and your workspace:
-
-```bash
-cd ~/ros2_ws
-source /opt/ros/jazzy/setup.bash
-source ~/ros2_ws/install/setup.bash
-```
-
 ## Installation
 
 ```bash
@@ -92,6 +82,16 @@ git clone <REPO_URL>
 cd ~/ros2_ws
 source /opt/ros/jazzy/setup.bash
 colcon build --packages-select webots_ros2_prototype_integration_test
+```
+
+## Environment setup (every new terminal)
+
+In every new terminal, remember to source ROS 2 and your workspace:
+
+```bash
+cd ~/ros2_ws
+source /opt/ros/jazzy/setup.bash
+source ~/ros2_ws/install/setup.bash
 ```
 
 ## Usage
