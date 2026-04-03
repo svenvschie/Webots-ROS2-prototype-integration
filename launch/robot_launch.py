@@ -17,6 +17,7 @@ def generate_launch_description():
     )
 
     use_obstacle_avoider = LaunchConfiguration('use_obstacle_avoider')
+    webots_ip = LaunchConfiguration('webots_ip')
 
     webots = WebotsLauncher(
         world=os.path.join(package_dir, 'worlds', '4_wheeled_robot.wbt')
@@ -24,6 +25,7 @@ def generate_launch_description():
 
     robot_driver = WebotsController(
         robot_name='my_robot',
+        ip_address=webots_ip,
         parameters=[
             {'robot_description': robot_description_path},
         ]
@@ -41,6 +43,11 @@ def generate_launch_description():
             'use_obstacle_avoider',
             default_value='false',
             description='Launch the obstacle avoider node'
+        ),
+        DeclareLaunchArgument(
+            'webots_ip',
+            default_value='127.0.0.1',
+            description='IP address of the machine running Webots'
         ),
         webots,
         robot_driver,

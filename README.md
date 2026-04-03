@@ -29,7 +29,7 @@ If you are using Windows 11, install WSL2 (With default option: Ubuntu) first:
 
 [https://learn.microsoft.com/en-us/windows/wsl/install](https://learn.microsoft.com/en-us/windows/wsl/install)
 
-After installation, a reboot is usually required.
+After installation, a reboot is sometimes required.
 In some cases, you may need to run wsl --install again after reboot to complete the Ubuntu installation.
 
 ### ROS 2 Jazzy
@@ -105,6 +105,8 @@ source /opt/ros/jazzy/setup.bash
 source install/setup.bash
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py
 ```
+n
+In case of a persistent "Cannot connect to Webots instance" error, see [WSL networking fix](#wsl-networking-fix).
 
 ### Publish velocity commands
 
@@ -161,47 +163,19 @@ Make sure the workspace has been sourced after building:
 source ~/ros2_ws/install/setup.bash
 ```
 
-## WSL networking fix
+### WSL networking fix
 
-On WSL, `webots_ros2_driver` may fail to connect correctly to Webots running on Windows because of the auto-generated `/etc/resolv.conf`.
+If Webots runs on Windows and ROS 2 runs in WSL2, the default address (127.0.0.1) may not work.
 
-### 1. Disable auto-generation of `/etc/resolv.conf`
+If you get "Cannot connect to Webots instance":
 
-```bash
-sudo tee /etc/wsl.conf > /dev/null <<'EOF'
-[network]
-generateResolvConf = false
-EOF
-```
+1. In WSL, run:
+   ip route | grep default
 
-### 2. Restart WSL
+2. You’ll see something like:
+   default via 172.x.x.x
 
-From Windows PowerShell or Command Prompt:
+3. Use that IP when launching:
+   ros2 launch webots_ros2_prototype_integration_test robot_launch.py webots_ip:=172.x.x.x
 
-```powershell
-wsl --shutdown
-```
-
-Then reopen Ubuntu.
-
-### 3. Replace `/etc/resolv.conf`
-
-```bash
-sudo rm -f /etc/resolv.conf
-echo -e "nameserver 127.0.0.1\nnameserver 8.8.8.8" | sudo tee /etc/resolv.conf
-```
-
-> Using only `nameserver 127.0.0.1` may break internet access inside WSL.
-
-### 4. Verify
-
-```bash
-cat /etc/resolv.conf
-```
-
-Expected output:
-
-```text
-nameserver 127.0.0.1
-nameserver 8.8.8.8
-```
+On Ubuntu (or some WSL setups), the normal launch command works without changes.
