@@ -58,23 +58,32 @@ echo 'export WEBOTS_HOME="/mnt/c/Program Files/Webots"' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-#### Install Webots ROS 2 integration
+### Install Webots ROS 2 integration
 
-Follow the official guide to install the required `webots_ros2` packages:
+Install the required `webots_ros2` packages:
 
-[https://docs.ros.org/en/jazzy/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html](https://docs.ros.org/en/jazzy/Tutorials/Advanced/Simulators/Webots/Installation-Ubuntu.html)
+```bash
+sudo apt-get install ros-jazzy-webots-ros2
+```
 
 ### colcon
 
 You need `colcon` to build the package:
 
-[https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html)
+Install it (if not already installed):
+
+```bash
+sudo apt install python3-colcon-common-extensions
+```
 
 ### ROS 2 workspace
 
 You need a working ROS 2 workspace, for example `~/ros2_ws`:
 
-[https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html)
+```bash
+mkdir -p ~/ros2_ws/src 
+cd ~/ros2_ws/src
+```
 
 ## Installation
 
