@@ -105,7 +105,7 @@ source /opt/ros/jazzy/setup.bash
 source install/setup.bash
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py
 ```
-n
+
 In case of a persistent "Cannot connect to Webots instance" error, see [WSL networking fix](#wsl-networking-fix).
 
 ### Publish velocity commands
