@@ -25,6 +25,7 @@ This README documents the following setups:
 * **Windows + WSL2 + Ubuntu 24.04**
 
 Native Windows ROS 2 installation is **not** covered.
+
 On Windows, ROS 2 is expected to run inside WSL2 on Ubuntu 24.04.
 
 ## Prerequisites
