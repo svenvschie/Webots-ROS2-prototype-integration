@@ -167,12 +167,6 @@ source ~/ros2_ws/install/setup.bash
 
 If Webots runs on Windows and ROS 2 runs in WSL2, the default address (`127.0.0.1`) may not work.
 
-In that case, the controller may fail with:
-
-```text
-Cannot connect to Webots instance
-```
-
 #### Get the Windows host IP
 
 From WSL, run:
