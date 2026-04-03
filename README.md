@@ -26,9 +26,11 @@ This README documents the following setups:
 
 Native Windows ROS 2 installation is **not** covered.
 
+On Windows, ROS 2 is expected to run inside WSL2.
+
 ## Prerequisites
 
-Before using this package, make sure you have the following installed.
+Before using this package, ensure the following components are installed:
 
 ### WSL2 (Windows only)
 
@@ -86,6 +88,7 @@ mkdir -p ~/ros2_ws/src
 In every new terminal, remember to source ROS 2 and your workspace:
 
 ```bash
+cd ~/ros2_ws
 source /opt/ros/jazzy/setup.bash
 source ~/ros2_ws/install/setup.bash
 ```
@@ -102,12 +105,11 @@ colcon build --packages-select webots_ros2_prototype_integration_test
 
 ## Usage
 
+In a new terminal (after running the environment setup step):
+
 ### Launch the package
 
 ```bash
-cd ~/ros2_ws
-source /opt/ros/jazzy/setup.bash
-source ~/ros2_ws/install/setup.bash
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py
 ```
 
@@ -118,17 +120,12 @@ In case of a persistent "Cannot connect to Webots instance" error, see [WSL netw
 Open a second terminal and run:
 
 ```bash
-source /opt/ros/jazzy/setup.bash
-source ~/ros2_ws/install/setup.bash
 ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0}, angular: {z: 0.0}}"
 ```
 
 ### Launch with obstacle avoidance
 
 ```bash
-cd ~/ros2_ws
-source /opt/ros/jazzy/setup.bash
-source ~/ros2_ws/install/setup.bash
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py use_obstacle_avoider:=true
 ```
 
