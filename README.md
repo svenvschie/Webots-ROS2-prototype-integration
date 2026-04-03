@@ -1,6 +1,6 @@
 # Webots ROS 2 Integration Test
 
-This repository contains files for testing integration between **Webots** and **ROS 2 Jazzy** (current LTS).
+This repository contains files for testing integration between **Webots** and **ROS 2 Jazzy**
 
 It provides a small prototype package for verifying a basic Webots and ROS 2 integration workflow:
 
@@ -16,9 +16,7 @@ This README documents the following setups:
 
 This README does **not** document native Windows ROS 2 installation.
 
-> - Although ROS 2 Jazzy officially documents native Windows 10 support, that setup requires a different installation process which is not covered in this repository.
-> - The Webots ROS 2 documentation recommends using WSL2 with Ubuntu on Windows, regardless of Windows version.
-> - Webots itself is installed on Windows (rather than inside WSL) for simplicity and better graphical performance.
+> This follows the recommendation from the Webots ROS 2 documentation.
 
 ## Prerequisites
 
@@ -39,10 +37,10 @@ Install ROS 2 Jazzy in Ubuntu (using WSL2 in case of Windows):
 
 [https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
 
-### Webots
+Install Webots:
 
-* Install **Webots on Windows** if you are using **Windows + WSL2**
-* Install **Webots on Ubuntu** if you are using a full Ubuntu installation
+* On Windows if using Windows + WSL2
+* On Ubuntu if using a native Ubuntu system
 
 #### Windows + WSL2 only: set Webots path in WSL
 
@@ -64,8 +62,7 @@ source ~/.bashrc
 Install the required `webots_ros2` packages and `colcon` for building packages (if not already installed):
 
 ```bash
-sudo apt-get install ros-jazzy-webots-ros2
-sudo apt install python3-colcon-common-extensions
+sudo apt install ros-jazzy-webots-ros2 python3-colcon-common-extensions
 ```
 
 ### ROS 2 workspace
@@ -74,6 +71,15 @@ You need a working ROS 2 workspace, for example `~/ros2_ws`:
 
 ```bash
 mkdir -p ~/ros2_ws/src 
+```
+
+### Environment setup (every new terminal)
+
+In every new terminal, remember to source ROS 2 and your workspace:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/ros2_ws/install/setup.bash
 ```
 
 ## Installation
@@ -152,7 +158,7 @@ source ~/ros2_ws/install/setup.bash
 
 ### WSL networking fix
 
-If Webots runs on Windows and ROS 2 runs in WSL2, the default address (`127.0.0.1`) may not work.
+If Webots runs on Windows and ROS 2 runs in WSL2, `127.0.0.1` may not work because they are on different network interfaces.
 
 #### Get the Windows host IP
 
@@ -176,7 +182,7 @@ Use the `default via` address as `webots_ip`:
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py webots_ip:=172.20.160.1
 ```
 
-Launch with obstacle avoidance
+Launch with obstacle avoidance:
 
 ```bash
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py webots_ip:=172.20.160.1 use_obstacle_avoider:=true
