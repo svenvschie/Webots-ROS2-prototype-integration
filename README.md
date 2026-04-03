@@ -60,15 +60,10 @@ source ~/.bashrc
 
 ### Install Webots ROS 2 integration & colcon
 
-Install the required `webots_ros2` packages:
+Install the required `webots_ros2` packages and `colcon` for building packages (if not already installed):
 
 ```bash
 sudo apt-get install ros-jazzy-webots-ros2
-```
-
-Install `colcon` (if not already installed):
-
-```bash
 sudo apt install python3-colcon-common-extensions
 ```
 
@@ -78,7 +73,6 @@ You need a working ROS 2 workspace, for example `~/ros2_ws`:
 
 ```bash
 mkdir -p ~/ros2_ws/src 
-cd ~/ros2_ws/src
 ```
 
 ## Installation
