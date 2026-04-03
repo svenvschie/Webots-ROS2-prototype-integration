@@ -177,9 +177,7 @@ ip route | grep default
 
 Example output:
 
-```text
 default via 172.20.160.1 dev eth0 proto kernel
-```
 
 #### Launch with the correct IP
 
@@ -187,4 +185,10 @@ Use the `default via` address as `webots_ip`:
 
 ```bash
 ros2 launch webots_ros2_prototype_integration_test robot_launch.py webots_ip:=172.20.160.1
+```
+
+Launch with obstacle avoidance
+
+```bash
+ros2 launch webots_ros2_prototype_integration_test robot_launch.py webots_ip:=172.20.160.1 use_obstacle_avoider:=true
 ```
