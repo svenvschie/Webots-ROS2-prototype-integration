@@ -40,6 +40,7 @@ Carpet {
   rotation 0 0 1 3.14159
 }
 Robot {
+  supervisor TRUE
   translation -1.38 0 0.066
   children [
     Gyro {

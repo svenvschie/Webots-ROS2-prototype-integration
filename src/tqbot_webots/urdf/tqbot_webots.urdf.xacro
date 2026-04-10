@@ -9,6 +9,8 @@
       <wheel_radius>0.04</wheel_radius>
       <half_wheel_separation>0.1</half_wheel_separation>
       <max_motor_velocity>100.0</max_motor_velocity>
+      <odom_frame_id>odom</odom_frame_id>
+      <base_frame_id>base_link</base_frame_id>
     </plugin>
 
     <device reference="gyro" type="Gyro">

@@ -10,6 +10,9 @@ find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(webots_ros2_driver REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 pluginlib_export_plugin_description_file(webots_ros2_driver tqbot_webots_driver.xml)
 
@@ -27,6 +30,9 @@ ament_target_dependencies(${PROJECT_NAME}
   geometry_msgs
   pluginlib
   webots_ros2_driver
+  nav_msgs
+  tf2
+  tf2_ros
 )
 
 install(
