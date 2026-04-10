@@ -66,6 +66,14 @@ colcon build
 source install/setup.bash
 ~~~
 
+## Simulation
+
+For running the system in Webots, refer to:
+
+- `docs/simulation.md`
+
+Simulation is used for testing and validating robot behaviour without requiring physical hardware.
+
 ## Conclusion
 
 This repository defines the Docker-based ROS 2 workspace for the Robot Swarm system. Following the steps above results in a consistent development environment with the workspace mounted and ready to build.
