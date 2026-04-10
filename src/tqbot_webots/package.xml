@@ -3,9 +3,11 @@
 <package format="3">
   <name>tqbot_webots</name>
   <version>0.0.0</version>
-  <description>Webots simulation package for tqbot.</description>
-  <maintainer email="your@email.com">Your Name</maintainer>
-  <license>TODO: License declaration</license>
+  <description>
+    Webots integration package for the TQBot platform. This package provides the simulation environment, launch files, and configuration required to run and interface the robot within Webots as part of the Robot Swarm system.
+  </description>
+  <maintainer email="sven.vanschie@student.fontys.nl">Sven van Schie</maintainer>
+  <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
