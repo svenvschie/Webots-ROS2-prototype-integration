@@ -271,3 +271,8 @@ TrafficCone {
   scale 0.5
   name "traffic cone(1)"
 }
+Robot {
+  name "Ros2Supervisor"
+  controller "<extern>"
+  supervisor TRUE
+}

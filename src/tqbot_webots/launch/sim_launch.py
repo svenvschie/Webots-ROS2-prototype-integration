@@ -1,11 +1,13 @@
 import os
 
-from ament_index_python.packages import get_package_share_directory
+from ament_index_python.packages import get_package_share_directory, get_package_prefix
 
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, ExecuteProcess
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+
+from webots_ros2_driver.webots_launcher import Ros2SupervisorLauncher
 
 import xacro
 
@@ -57,10 +59,23 @@ def generate_launch_description():
         respawn=True,
     )
 
+    ros2_supervisor = Node(
+        package='webots_ros2_driver',
+        executable='ros2_supervisor.py',
+        namespace='Ros2Supervisor',
+        remappings=[('/Ros2Supervisor/clock', '/clock')],
+        output='screen',
+        respawn=True,
+        additional_env={
+            'WEBOTS_HOME': get_package_prefix('webots_ros2_driver'),
+            'WEBOTS_CONTROLLER_URL': f'tcp://host.docker.internal:1234/Ros2Supervisor',
+        }
+    )
+
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
-            default_value='false',
+            default_value='true',
             description='Use simulation time'
         ),
         DeclareLaunchArgument(
@@ -75,4 +90,5 @@ def generate_launch_description():
         ),
         robot_state_publisher,
         tqbot_driver,
+        ros2_supervisor,
     ])
