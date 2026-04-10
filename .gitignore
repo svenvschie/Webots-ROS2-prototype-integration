@@ -3,3 +3,4 @@ install/
 log/
 *.log
 .wbproj
+*.wbproj
