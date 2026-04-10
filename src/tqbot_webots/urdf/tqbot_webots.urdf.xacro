@@ -5,6 +5,12 @@
   <xacro:tqbot_description/>
 
   <webots>
+    <plugin type="tqbot_webots::TQBotDriver">
+      <wheel_radius>0.04</wheel_radius>
+      <half_wheel_separation>0.1</half_wheel_separation>
+      <max_motor_velocity>100.0</max_motor_velocity>
+    </plugin>
+
     <device reference="gyro" type="Gyro">
       <ros>
         <frameName>gyro_link</frameName>

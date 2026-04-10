@@ -1,0 +1,9 @@
+<library path="tqbot_webots">
+  <class
+    type="tqbot_webots::TQBotDriver"
+    base_class_type="webots_ros2_driver::PluginInterface">
+    <description>
+      Webots ROS 2 driver plugin for TQBot differential drive control.
+    </description>
+  </class>
+</library>
