@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot name="tqbot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find tqbot_description)/urdf/tqbot.urdf.xacro"/>
+  <xacro:tqbot_description/>
+
+  <webots>
+    <device reference="gyro" type="Gyro">
+      <ros>
+        <frameName>gyro_link</frameName>
+        <topicName>/gyro</topicName>
+        <alwaysOn>true</alwaysOn>
+      </ros>
+    </device>
+
+    <device reference="accelerometer" type="Accelerometer">
+      <ros>
+        <frameName>accelerometer_link</frameName>
+        <topicName>/accelerometer</topicName>
+        <alwaysOn>true</alwaysOn>
+      </ros>
+    </device>
+
+    <device reference="lidar" type="Lidar">
+      <ros>
+        <frameName>lidar_link</frameName>
+        <topicName>/scan</topicName>
+        <alwaysOn>true</alwaysOn>
+      </ros>
+    </device>
+
+    <device reference="cam_right" type="Camera">
+      <ros>
+        <frameName>cam_right_link</frameName>
+        <topicName>/cam_right/image_raw</topicName>
+        <alwaysOn>true</alwaysOn>
+      </ros>
+    </device>
+
+    <device reference="ds_left" type="DistanceSensor">
+      <ros>
+        <frameName>ds_left_link</frameName>
+        <topicName>/ds_left/range</topicName>
+        <alwaysOn>true</alwaysOn>
+      </ros>
+    </device>
+  </webots>
+
+</robot>

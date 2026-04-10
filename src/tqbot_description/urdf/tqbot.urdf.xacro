@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="tqbot_description">
+
+    <link name="base_link"/>
+
+    <link name="gyro_link"/>
+    <joint name="gyro_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="gyro_link"/>
+      <origin xyz="-0.03 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="accelerometer_link"/>
+    <joint name="accelerometer_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="accelerometer_link"/>
+      <origin xyz="-0.03 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="lidar_link"/>
+    <joint name="lidar_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="lidar_link"/>
+      <origin xyz="-0.04 0 0.06" rpy="0 0 0"/>
+    </joint>
+
+    <link name="cam_right_link"/>
+    <joint name="cam_right_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="cam_right_link"/>
+      <origin xyz="0.13 -0.09 0.02" rpy="0 0 0"/>
+    </joint>
+
+    <link name="ds_left_link"/>
+    <joint name="ds_left_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="ds_left_link"/>
+      <origin xyz="0.13 0.09 0.02" rpy="0 0 0.038205307179586256"/>
+    </joint>
+
+    <link name="wheel_front_left_link"/>
+    <joint name="wheel_front_left_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="wheel_front_left_link"/>
+      <origin xyz="0.06 0.1 -0.022" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="wheel_front_right_link"/>
+    <joint name="wheel_front_right_joint" type="continuous">
+      <parent link="base_link"/>
+      <child link="wheel_front_right_link"/>
+      <origin xyz="0.06 -0.1 -0.022" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="wheel_back_link"/>
+    <joint name="wheel_back_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="wheel_back_link"/>
+      <origin xyz="-0.17 0 -0.033" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+
+</robot>
